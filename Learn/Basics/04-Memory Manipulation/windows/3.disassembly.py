@@ -8,19 +8,16 @@ import capstone
 
 cs = None
 session = None
+ADDRESS = 0x123456
+LENGTH  = 10
 
 
 def on_message(message, data):
     print(message)
 
 
-def load_script(script_name):
-    with open(script_name) as f:
-        script = f.read()
-    return script 
-
-
 def setup_capstone():
+    global cs
     cs = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_64)
     return cs
 
@@ -37,11 +34,10 @@ def main():
     session = frida.attach("target.exe")
 
     # Create Capstone instance
-    global cs
-    cs = setup_capstone()
+    setup_capstone()
 
     # Disassemble the codes
-    disasm(0x123456, 10)
+    disasm(ADDRESS, LENGTH)
 
     IPython.embed()
     session.detach()

@@ -5,15 +5,11 @@ import frida
 import sys 
 import IPython
 
+ADDRESS = 0x123456
+
 
 def on_message(message, data):
     print(message)
-
-
-def load_script(script_name):
-    with open(script_name) as f:
-        script = f.read()
-    return script 
 
 
 def main():
@@ -22,11 +18,11 @@ def main():
 
     # Write some bytes at address
     # It should not violate memory access protection
-    session.write_bytes(0x123456, b'12345')
+    session.write_bytes(ADDRESS, b'12345')
 
     # Write some UTF-8 bytes at address
     # It should not violate memory access protection
-    session.read_utf8(0x123456, "12345")
+    session.read_utf8(ADDRESS, "12345")
 
     IPython.embed()
     session.detach()

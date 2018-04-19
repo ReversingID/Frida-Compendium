@@ -5,15 +5,12 @@ import frida
 import sys 
 import IPython
 
+ADDRESS = 0x123456
+LENGTH  = 10
+
 
 def on_message(message, data):
     print(message)
-
-
-def load_script(script_name):
-    with open(script_name) as f:
-        script = f.read()
-    return script 
 
 
 def main():
@@ -21,10 +18,10 @@ def main():
     session = frida.attach("target.exe")
 
     # Read some bytes at address
-    bytes_buffer = session.read_bytes(0x123456, 10)
+    bytes_buffer = session.read_bytes(ADDRESS, LENGTH)
 
     # Read some UTF-8 bytes at address
-    utf8_buffer  = session.read_utf8(0x123456, 10)
+    utf8_buffer  = session.read_utf8(ADDRESS, LENGTH)
 
     IPython.embed()
     session.detach()

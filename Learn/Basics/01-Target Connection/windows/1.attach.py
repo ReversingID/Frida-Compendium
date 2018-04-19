@@ -35,25 +35,6 @@ def attach_remote(processname):
     session = device.attach(processname)
     waitinterrupt()
 	
-def attach_device(processname):
-    # Attach to device (with frida server)
-    device  = frida.get_usb_device()
-    session = device.attach(processname)
-    waitinterrupt()
-
-def attach_frontapp():
-    # Attach to the front app (of mobile application)
-    device  = frida.get_remote_device()
-    session = device.get_frontmost_application()
-    waitinterrupt()
-
-def attach_lastdevice(processname):
-    # Enumerate devices and attach the app on the last device
-    manager = frida.get_device_manager()
-    device  = manager.enumerate_devices()[-1]
-    session = device.attach(processname)
-    waitinterrupt()
-	
 def spawn_local(appname):
     # spawn a process on local machine
     # Attach to process on local machine
@@ -82,36 +63,14 @@ def spawn_remote(appname):
     device.resume(pid)
     waitinterrupt()
 	
-def spawn_device(appname):
-    # Attach to device (with frida server)
-    device  = frida.get_usb_device()
-    pid     = device.spawn([appname])
-    session = device.attach(pid)
-    device.resume(pid)
-    waitinterrupt()
-	
-def spawn_lastdevice(appname):
-    # Enumerate devices and attach the app on the last device
-    manager = frida.get_device_manager()
-    device  = manager.enumerate_devices()[-1]
-    pid     = frida.spawn([appname])
-    session = device.attach(pid)
-    device.resume(pid)
-    waitinterrupt()
-	
 def main():
     #### Attach to existing process
 	attach_local("processname")
     attach_remote("processname")
-    attach_device("processname")
-    attach_frontapp()
-    attach_lastdevice("processname")
     
     #### Spawn process and attach to it
 	spawn_local("app")
     spawn_remote("app")
-    spawn_device("app")
-    spawn_lastdevice("app")
 
 if __name__ == '__main__':
     main()
