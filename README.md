@@ -1,15 +1,15 @@
-# Reversing.ID Reversing Compendium
-Project: Frida
+# Frida Compendium
 
-Repository untuk belajar Frida
+Open repository for learning Frida and related tools for Dynamic Binary Instrumentation.
 
-Kunjungi [Frida github repository](https://github.com/frida/frida) untuk panduan dalam build ataupun instalasi frida.
+### Disclaimer by Reversing.ID
 
-Frida adalah framework untuk DBI (Dynamic Binary Instrumentation) yang modern dan sangat powerful.
+Repository ini untuk menghimpun informasi dan pengetahuan tentang penggunaan [Frida](https://frida.re) dan tool terkait untuk melakukan DBI (Dynamic Binary Instrumentation). Repository ini terbuka untuk publik, dapat diakses oleh siapa saja baik internal komunitas Reversing.ID maupun di luar komunitas.
 
-Repository ini adalah repository yang digunakan oleh Reversing.ID untuk menghimpun beragam materi pembelajaran serta latihan dalam penggunaan Frida.
+Frida adalah framework DBI (Dynamic Binary Instrumentation) modern dan sangat powerful. Kunjungi [Frida github repository](https://github.com/frida/frida) untuk panduan build ataupun instalasi frida.
 
 Reversing.ID adalah komunitas yang menghimpun Reverse Engineer di Indonesia.
+
 - Telegram group: https://t.me/ReversingID
 - Facebook page:  https://www.facebook.com/Reversing.ID/
 - Facebook group: https://www.facebook.com/groups/reversing.id/
