@@ -56,7 +56,7 @@ function revealNativeMethod()
                     module:     DebugSymbol.fromAddress(fn_ptr)['moduleName'],
                     package:    jclass.slice(0, -1).join('.'),
                     class:      jclass[jclass.length -1],
-                    method:     method_ptr.readPointer().readCString(),
+                    method:     method_ptr.add(i * struct_size).readPointer().readCString(),
                     signature:  signature.readCString(),
                     address:    fn_ptr
                 }));
